@@ -11,7 +11,7 @@
 ,
 		"classnamespace" : "box",
 		"rect" : [ 34.0, 111.0, 991.0, 682.0 ],
-		"bglocked" : 0,
+		"bglocked" : 1,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
 		"default_fontface" : 0,
@@ -38,6 +38,28 @@
 		"style" : "",
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-21",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 255.0, 61.0, 37.0, 20.0 ],
+					"text" : "Init"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-20",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 703.5, 61.0, 98.0, 20.0 ],
+					"text" : "Test Methods"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-3",
 					"maxclass" : "message",
@@ -115,7 +137,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 21.0, 38.0, 98.0, 22.0 ],
+					"patching_rect" : [ 19.0, 28.0, 98.0, 22.0 ],
 					"text" : "script npm install"
 				}
 
@@ -229,7 +251,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 214.0, 38.0, 64.0, 22.0 ],
+					"patching_rect" : [ 212.0, 28.0, 64.0, 22.0 ],
 					"text" : "script stop"
 				}
 
@@ -241,7 +263,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 128.0, 38.0, 64.0, 22.0 ],
+					"patching_rect" : [ 126.0, 28.0, 64.0, 22.0 ],
 					"text" : "script start"
 				}
 
@@ -422,7 +444,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
-					"midpoints" : [ 137.5, 151.0, 28.5, 151.0 ],
+					"midpoints" : [ 135.5, 151.0, 28.5, 151.0 ],
 					"source" : [ "obj-6", 0 ]
 				}
 
@@ -430,7 +452,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
-					"midpoints" : [ 223.5, 155.0, 28.5, 155.0 ],
+					"midpoints" : [ 221.5, 155.0, 28.5, 155.0 ],
 					"source" : [ "obj-7", 0 ]
 				}
 
