@@ -1,10 +1,10 @@
 class Bendit {
     /**
      * @property {string[]} users - An array of connected client websocket IDs
-     * @property {Object[]} devices - An array of created BenditDevices that can assigned to connected Bendit boards 
+     * @property {Object[]} devices - An array of created BenditDevices that can assigned to connected Bendit boards
      * @property {Object} socket - The socket.io socket for this Bendit-class instance. <em> Read only.</em>
      * @property {Object[]} availableBoards - An array of assigned board data for all connected Bendit Boards
-     * 
+     *
      */
     constructor(socket) {
 
@@ -49,7 +49,7 @@ class Bendit {
 
     /**
         * Pings the server and returns an updated list of connected web client user IDs
-        * 
+        *
         * @return {
             string[]
         } - An array of connected web client user IDs
@@ -65,7 +65,7 @@ class Bendit {
     /**
         * Pings the server and returns an updated list containing the assigned device data
         * of any connected Bendit boards.
-        * 
+        *
         * @return {
             Object[]
         } - An array of objects containing the assigned device data of each connected Bendit board
@@ -79,25 +79,25 @@ class Bendit {
     /**
      * Creates an instance of the BenditDevice class and adds that object to the Bendit.devices array.
      * Can be called with individual arguments or with an object.
-     * 
+     *
      * @param {number} switches - the total number of switches to assign to the device.
      * @param {number} pots - the total number of switches to assign to the device.
      * @param {number} motors - the total number of motors to assign to the device.
      * @param {number} boardNumber - the Bendit board number to assign to the device.
      * @return {Object} - An instance of the BenditDevice class.
-     * @example 
+     * @example
      * //Create Bendit instance
      * let bendit = new Bendit.Connection();
-     * 
+     *
      * let speakNspell = bendit.addDevice(6,5,1,2);// possible switches, pots, and motors to control on board 2
-     * 
+     *
      * or
-     * 
+     *
      * let speakNspell = bendit.addDevice({
      *       "switches": 6,
      *       "pots": 5,
      *       "motors": 1,
-     *       "boardNumber": 2     
+     *       "boardNumber": 2
      *       });
      */
     addDevice(options) {
@@ -107,7 +107,7 @@ class Bendit {
             case 'number':
                 //convert arguments to actual array
                 let args = [...arguments];
-                //add the Bendit-class socket 
+                //add the Bendit-class socket
                 args.push(this._socket);
                 newDevice = new BenditDevice(args[0], args[1], args[2], args[3], args[4]);
                 break;
@@ -129,16 +129,16 @@ class Bendit {
 
 /**
  * An object that represents a Bendit board/circuit-bent device pair. New devices are added to the Bendit.devices array on creation.
- * 
  *
- * 
+ *
+ *
  * @see {@link addDevice}
- * 
+ *
  */
 
 class BenditDevice {
-    /** 
-     * 
+    /**
+     *
      * @prop {Object[]} switches - An array of Switch objects.
      * @prop {Object[]} pots - An array of Pot objects.
      * @prop {Object[]} motors - An array of Motor objects.
@@ -155,7 +155,7 @@ class BenditDevice {
         this.boardNumber = 0;
         this.switches = []; //array of switches
         this.pots = []; //array of pot channels
-        this.motors = []; //array of motor channels 
+        this.motors = []; //array of motor channels
         this.deviceNickname = "string";
         this.deviceColor = "string";
         this.boardVersion = "0.0"; //revision of the hardware
@@ -200,8 +200,8 @@ class BenditDevice {
 
     /**
         * Builds an array of Switch objects and assigns them to a device's switch array. <i>Called by {@link addDevice}</i>.
-        * 
-        * 
+        *
+        *
         * @param {number} totalSwitches - The total number of Switch objects to build.
         * @return {
             Object[]
@@ -217,8 +217,8 @@ class BenditDevice {
 
     /**
         * Builds an array of Pot objects and assigns them to a device's pot array. <i>Called by {@link addDevice}</i>.
-        * 
-        * 
+        *
+        *
         * @param {number} totalPots - The total number of Switch objects to build.
         * @return {
             Object[]
@@ -234,8 +234,8 @@ class BenditDevice {
 
     /**
         * Builds an array of Motor objects and assigns them to a device's motor array. <i>Called by {@link addDevice}</i>.
-        * 
-        * 
+        *
+        *
         * @param {number} totalMotors - The total number of Motor objects to build.
         * @return {
             Object[]
@@ -250,9 +250,9 @@ class BenditDevice {
 
     /**
         * Pings the server and retrieves the board data of the associated Bendit board.
-        * 
-        * 
-        * 
+        *
+        *
+        *
         * @return {
             Object[]
         } - The board data of the associated Bendit board.
@@ -266,9 +266,9 @@ class BenditDevice {
     /**
      * Instructs the server to rewrite the board data of the associated Bendit board.
      * @param {Object} options - The new data to write to the device's associated Bendit board.
-     * 
-     * 
-     * 
+     *
+     *
+     *
      */
     writeDeviceProfile(options) {
 
@@ -287,7 +287,7 @@ class BenditDevice {
 
 
 /**
- * An object that represents a switch output on a Device's associated Bendit board/circuit-bent device pair. 
+ * An object that represents a switch output on a Device's associated Bendit board/circuit-bent device pair.
  * An array of Switch objects are created when a new BenditDevice object is created.
  * @param {
      number
@@ -301,17 +301,17 @@ class BenditDevice {
  to be associated with the Bendit board this
  switch 's device is assigned to.
  *
- * 
- * 
+ *
+ *
  * @property {number} number - The
  switch channel of this device's Bendit board.
   * @property {boolean} state - The state of the switch (e.g false == "open", true == "closed".)
   * @property {Object} socket - The socket.io socket inhereted from the global Bendit-class instance. <em> Read only.</em>
   * @property {number} boardNumber - The number of the Bendit board that this device and this switch are associated with.
- 
- * 
+
+ *
  * @see {@link BenditDevice}
- * 
+ *
  */
 
 class Switch {
@@ -336,28 +336,28 @@ class Switch {
     /**
      * Sets the state of the switch on this device's Bendit board.
      * Switches in the BenditDevice.switches array are zero indexed.
-     * 
-     * 
-     * 
+     *
+     *
+     *
      * @param {string|number} v - The state of the switch. Accepts a string ("open"/"closed") or a number (0/1).
-     * 
+     *
      * @example
-     * 
+     *
      *
      * //Create device and attach it to Bendit board 4
      * let toy = bendit.addDevice(bendit.addDevice({
      * "switches": 4,
      * "pots": 8,
      * "motors": 0,
-     * "boardNumber": 4 
-     * }); 
+     * "boardNumber": 4
+     * });
      * //Set state of Switch 4 channel on this Bendit board to "closed"
      *  toy.switches[3].setSwitch("closed"); //Switch 4 closes
-     *   
+     *
      *  //Set state of Switch 4 channel to "open"
      *  toy.switches[3].setSwitch("open"); //Switch 4 is now open
-     * 
-     * 
+     *
+     *
      */
     setSwitch(v) {
         if (v == "open" || v == 0) {
@@ -378,26 +378,26 @@ class Switch {
     }
 
     /**
-     * Checks the current state of the switch and "flips" it to be the opposite state. 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
+     * Checks the current state of the switch and "flips" it to be the opposite state.
+     *
+     *
+     *
+     *
+     *
+     *
+     *
      * @example
-     * 
+     *
      *
      * console.log(toy.switches[2].state); //--> prints "false", aka "open"
-     * 
+     *
      * //Flip the state of Switch 4 channel on this Bendit board
      *  toy.switches[2].flipSwitch(); //Switch 4 is now "closed" aka "true"
-     *   
+     *
      *  //Flip the state of Switch 4 channel back
      *  toy.switches[3].flipSwitch(); //Switch 4 is now "open" aka "false"
-     * 
-     * 
+     *
+     *
      */
 
     flipSwitch() {
@@ -425,27 +425,27 @@ class Switch {
 
 
     /**
-     * Combines two "flips"; Checks the current state of the switch and toggles it to be the opposite state. Pauses for 450ms before toggling back to the starting state. 
+     * Combines two "flips"; Checks the current state of the switch and toggles it to be the opposite state. Pauses for 450ms before toggling back to the starting state.
      * Takes an optional argument to adjust the wait time of the toggle.
-     * 
-     * 
+     *
+     *
      * @param {number} waitTime - <i>[optional]</i> The time in milliseconds to wait between toggling state changes.
      * Defaults to 450ms if nothing passed in.
-     * 
-     * 
-     * 
+     *
+     *
+     *
      * @example
-     * 
+     *
      *
      * console.log(dvd.switches[1].state); //--> prints "false", aka "open"
-     * 
+     *
      * //Toggle the state of Switch 4 channel on this Bendit board
      *  dvd.switches[1].toggleSwitch(); //Switch 4 is now latched "closed" for 450ms, then set "open".
-     *   
+     *
      *  //Check state again after toggle
      * console.log(dvd.switches[1].state); //--> prints "false", aka "open"
-     * 
-     * 
+     *
+     *
      */
     toggleSwitch(waitTime = 450) {
         //check what state it is, flip to the opposite and automatically after
@@ -478,7 +478,7 @@ class Switch {
     }
 }
 /**
- * An object that represents a potentiometer output channel on a Device's associated Bendit board/circuit-bent device pair. 
+ * An object that represents a potentiometer output channel on a Device's associated Bendit board/circuit-bent device pair.
  * An array of Pot objects are created when a new BenditDevice object is created.
  * @param {number} potNum - The
  *potentiometer channel of this device's Bendit board.
@@ -488,7 +488,7 @@ class Switch {
  }
 * deviceNum - The number of the device associated with this pot. Passed on
 * to be associated with the Bendit board this
-* pot's device is assigned to. 
+* pot's device is assigned to.
  *
  *
  *
@@ -500,9 +500,9 @@ class Switch {
  }socket - The socket.io socket inhereted from the global Bendit - class instance. <i>Do not change this.</i>
  * @property {number} boardNumber - The number of the Bendit board that this device and this pot are associated with.
  *
- * 
+ *
  * @see {@link BenditDevice}
- * 
+ *
  */
 class Pot {
     constructor(potNum, socket, deviceNum) {
@@ -525,19 +525,19 @@ class Pot {
     /**
      * Sets the position of the pot on this device's Bendit board.
      * Pots in the BenditDevice.pots array are zero indexed.
-     * 
-     * 
-     * 
-     * @param {number} v - The position of the switch, corresponding to the generated resistance level. 
+     *
+     *
+     *
+     * @param {number} v - The position of the switch, corresponding to the generated resistance level.
      * Range is 0 - 255, corresponding to a resistance range of 0 to 100k ohms.
-     * 
-     * 
+     *
+     *
      * @example
-     * 
+     *
      * //Set position of Pot channel 3 on this Bendit board to 127 (midway)
      *  vhs.pots[2].setPot(127); //circa 50k ohms generated on Pot channel 3
-     * 
-     * 
+     *
+     *
      */
 
     setPot(v) {
@@ -555,16 +555,16 @@ class Pot {
 }
 
 /**
- * An object that represents a motor output channel on a Device's associated Bendit board/circuit-bent device pair. 
+ * An object that represents a motor output channel on a Device's associated Bendit board/circuit-bent device pair.
  * An array of Motor objects are created when a new BenditDevice object is created.
- * 
+ *
  * @param {
      number
- } motNum - The 
-     motor channel of this device 's Bendit board. 
+ } motNum - The
+     motor channel of this device 's Bendit board.
 * @param {
          Object
-     }socket - The socket.io socket inhereted from the global Bendit - class instance. <i>Do not change this.</i> 
+     }socket - The socket.io socket inhereted from the global Bendit - class instance. <i>Do not change this.</i>
 * @param {
          number
      } deviceNum - The number of the device associated with this motor. Passed on
@@ -576,10 +576,10 @@ class Pot {
   * @property {number} direction - The running direction of DC motors/position of solenoids (1 == forward/thrown, -1 == backwards/retracted)
   * @property {Object} socket - The socket.io socket inhereted from the global Bendit-class instance. <i>Do not change this.</i>
   * @property {number} boardNumber - The number of the Bendit board that this device and this motor are associated with.
- 
- * 
+
+ *
  * @see {@link BenditDevice}
- * 
+ *
  */
 class Motor {
     constructor(motNum, socket, deviceNum) {
@@ -601,22 +601,22 @@ class Motor {
     /**
      * For DC motors. Starts this channel's motor on this device's Bendit board.
      * Motors in the BenditDevice.motors array are zero indexed.
-     * 
-     * 
-     * 
+     *
+     *
+     *
      * @param {number} speed - The speed of the motor. Range is 0 (stopped) to 255 (ful speed).
      * @param {number} direction - The direction of the motor. Options are 1 (forward) and -1 (backwards).
-     * 
-     * 
-     * 
+     *
+     *
+     *
      * @example
-     * 
+     *
      * //Set speed and direction of Motor channel 1 on this Bendit board to forward at 127 (half-speed)
      *  tapeDeck.motors[0].run(127, 1);
-     * 
+     *
      * //Set speed and direction of Motor channel 1 on this Bendit board to backwards at 64 (quarter-speed)
      * tapeDeck.motors[0].run(64, -1);
-     * 
+     *
      */
 
     run(speed, direction) {
@@ -633,17 +633,17 @@ class Motor {
     /**
      * For DC motors. Stops this channel's motor on this device's Bendit board.
      * Motors in the BenditDevice.motors array are zero indexed.
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
+     *
+     *
+     *
+     *
+     *
+     *
      * @example
-     * 
-     * //Stop a currently-running motor 
+     *
+     * //Stop a currently-running motor
      *  tapeDeck.motors[0].stop();
-     * 
+     *
      */
 
     stop() {
@@ -659,12 +659,12 @@ class Motor {
     /**
      * For DC motors. Reverses this channel's motor on this device's Bendit board. Speed is kept at most recently set value.
      * Motors in the BenditDevice.motors array are zero indexed.
-     * 
-     * 
-     * 
-     *  
+     *
+     *
+     *
+     *
      * @example
-     * 
+     *
      * console.log(walkman.motors[1].direction); //--> prints 1, aka forward
      *
      * //Flip the direction of Motor channel 2 on this Bendit board
@@ -674,7 +674,7 @@ class Motor {
      * //Flip the direction of Motor 2 channel back
      *
      * walkman.motors[1].flipDirection(); //Motor 2 is now running forwards, aka 1
-     * 
+     *
      */
 
     flipDirection() {

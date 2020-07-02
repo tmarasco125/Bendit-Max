@@ -26,6 +26,10 @@ socket.on('grab_board_list', () => {
     maxAPI.outlet('yo');
 });
 
+maxAPI.addHandler('getSocket', () => {
+  console.log(bendit.socket);
+});
+
 maxAPI.addHandler('addDevice', (args) => {
     console.log(bendit.devices);
     let cd2 = bendit.addDevice(args);
