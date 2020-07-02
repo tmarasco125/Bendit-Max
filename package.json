@@ -1,0 +1,22 @@
+{
+  "name": "bendit-browswer-api",
+  "version": "1.0.0",
+  "description": "An API for benditBrowswer.js client-side library for Bendit_I/O",
+  "main": "benditBrowser.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "node BendItMaxClent.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tui-jsdoc-template": "^1.2.2"
+  },
+  "keywords": [],
+  "dependencies": {
+    "benditbrowser": "file:bendit",
+    "socket.io-client": "latest"
+  }
+}
