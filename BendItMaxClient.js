@@ -3,7 +3,7 @@ const maxAPI = require('max-api');
 const io = require('socket.io-client');
 const BendIt = require('benditbrowser');
 
-const socket = io.connect('http://localhost:3000');
+const socket = io.connect('http://bendit-web-interface.herokuapp.com');
 
 var bendit;
 
@@ -30,9 +30,13 @@ maxAPI.addHandler('getSocket', () => {
   console.log(bendit.socket);
 });
 
-maxAPI.addHandler('addDevice', (args) => {
+maxAPI.addHandler('getBenditSocket', ()=> {
+	console.log(bendit.socket);
+	});
+
+maxAPI.addHandler('addDevice', (...args) => {
     console.log(bendit.devices);
-    let cd2 = bendit.addDevice(args);
+    let cd2 = bendit.addDevice(args[0],args[1],args[2],args[3]);
     console.log(bendit.devices);
 });
 

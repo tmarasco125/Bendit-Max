@@ -103,21 +103,21 @@ class Bendit {
     addDevice(options) {
         let newDevice;
 
-        switch (typeof arguments[0]) {
-            case 'number':
+        //switch (typeof arguments[0]) {
+           // case 'number':
                 //convert arguments to actual array
                 let args = [...arguments];
                 //add the Bendit-class socket
                 args.push(this._socket);
                 newDevice = new BenditDevice(args[0], args[1], args[2], args[3], args[4]);
-                break;
-            case 'object':
-                newDevice = new BenditDevice(options.switches, options.pots, options.motors, options.boardNumber, this._socket);
+              //  break;
+           // case 'object':
+              //  newDevice = new BenditDevice(options.switches, options.pots, options.motors, options.boardNumber, this._socket);
                 //adding socket property if object passed in
                 //newDevice.socket = this.socket;
-                break;
+              //  break;
 
-        }
+       // }
 
 
 
@@ -164,24 +164,24 @@ class BenditDevice {
         // arguments.push(this.socket)
 
 
-        switch (typeof arguments[0]) {
-            case 'number':
+        //switch (typeof arguments[0]) {
+           // case 'number':
                 this.boardNumber = arguments[3];
                 this._socket = arguments[4];
                 this.buildSwitchArray(arguments[0]);
                 this.buildPotArray(arguments[1]);
                 this.buildMotorArray(arguments[2]);
 
-                break;
-            case 'object':
-                this.boardNumber = options.boardNumber;
-                this.buildSwitchArray(options.switches);
-                this.buildPotArray(options.pots);
-                this.buildMotorArray(options.motors);
+                //break;
+           // case 'object':
+               // this.boardNumber = options.boardNumber;
+               // this.buildSwitchArray(options.switches);
+               // this.buildPotArray(options.pots);
+               // this.buildMotorArray(options.motors);
 
-                break;
+               // break;
 
-        }
+        //}
 
 
         //this.addToDeviceArray();

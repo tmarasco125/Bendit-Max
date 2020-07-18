@@ -4,13 +4,13 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 1,
-			"revision" : 3,
+			"revision" : 0,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 372.0, 148.0, 991.0, 468.0 ],
+		"rect" : [ 129.0, 90.0, 906.0, 663.0 ],
 		"bglocked" : 1,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -38,6 +38,59 @@
 		"style" : "",
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-36",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 538.0, 589.0, 19.0, 22.0 ],
+					"saved_object_attributes" : 					{
+						"filename" : "",
+						"parameter_enable" : 0
+					}
+,
+					"text" : "js"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-35",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 751.0, 141.0, 62.0, 22.0 ],
+					"text" : "getSocket"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-31",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 434.0, 112.0, 187.0, 22.0 ],
+					"text" : "cdPlayer switch 2 setSwitch open"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-29",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 569.0, 151.0, 155.0, 22.0 ],
+					"text" : "addDevice cdPlayer 4 0 0 1"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-28",
 					"maxclass" : "comment",
@@ -123,7 +176,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 548.5, 28.0, 155.0, 22.0 ],
-					"presentation_linecount" : 2,
 					"text" : "getConnectedBenditBoards"
 				}
 
@@ -136,7 +188,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 420.5, 28.0, 105.0, 22.0 ],
-					"text" : "addDevice 4 0 0 2"
+					"text" : "addDevice 6 1 1 1"
 				}
 
 			}
@@ -182,7 +234,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 534.5, 246.0, 280.0, 22.0 ],
-					"text" : "stdout }"
+					"text" : "stdout \"       id: '41SiEsf-pGb95x65AAAX' } } ]\""
 				}
 
 			}
@@ -213,7 +265,7 @@
 					"numoutlets" : 1,
 					"offset" : [ 0.0, 0.0 ],
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 413.5, 322.0, 401.0, 363.0 ],
+					"patching_rect" : [ 413.5, 322.0, 400.0, 220.0 ],
 					"viewvisibility" : 1
 				}
 
@@ -335,8 +387,6 @@
 					"saved_object_attributes" : 					{
 						"autostart" : 0,
 						"defer" : 0,
-						"node_bin_path" : "",
-						"npm_bin_path" : "",
 						"watch" : 0
 					}
 ,
@@ -487,6 +537,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-33", 0 ],
 					"source" : [ "obj-32", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-1", 0 ],
+					"source" : [ "obj-35", 0 ]
 				}
 
 			}
