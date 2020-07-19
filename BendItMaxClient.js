@@ -13,6 +13,7 @@ const socket = io.connect('http://bendit-web-interface.herokuapp.com');
 
 var bendit;
 
+
 // This will be printed directly to the Max console
 maxAPI.post(`Loaded the ${path.basename(__filename)} script`);
 
@@ -22,11 +23,17 @@ socket.on('connect', () => {
     maxAPI.outlet(socket.id);
     maxAPI.outlet("Connected to server");
     bendit = new BendIt.Browser(socket);
-    console.log ()
+    console.log(bendit.receivedBoardMessage());
     if (bendit != null) {
         maxAPI.outlet("connectedUsers " + bendit.getConnectedUsers());
     }
+	if(bendit.receivedBoardMessage()){
+		var newMessage = bendit.messageFromBoard;
+		maxAPI.outlet("incomingMessageFromBoard" + newMessage);
+		maxAPI.post(`Received ${newMessage} from a board`);
+	}
 });
+
 
 
 
@@ -75,7 +82,7 @@ maxAPI.addHandler('setSwitch', (...args) =>{
 	//console.log(["Is this the board you're looking for?: ", matchingDevice[0].switches[]);
 	matchingDevice[0].switches[args[1]].setSwitch(args[2]);
 	
-	console.log(matchingDevice[0].switches[0])
+	console.log(bendit.messageFromBoard);
 	});
 	
 	
