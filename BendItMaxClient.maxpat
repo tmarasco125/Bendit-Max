@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 72.0, 85.0, 906.0, 663.0 ],
+		"rect" : [ 94.0, 92.0, 906.0, 663.0 ],
 		"bglocked" : 1,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -253,7 +253,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 534.5, 246.0, 280.0, 22.0 ],
-					"text" : "stdout \"  boardNumber: 1 }\""
+					"text" : "stdout \"    nickname: 'CDplayer' } ]\""
 				}
 
 			}
@@ -406,6 +406,8 @@
 					"saved_object_attributes" : 					{
 						"autostart" : 0,
 						"defer" : 0,
+						"node_bin_path" : "",
+						"npm_bin_path" : "",
 						"watch" : 0
 					}
 ,

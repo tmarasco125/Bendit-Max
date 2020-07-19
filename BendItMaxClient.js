@@ -36,7 +36,9 @@ socket.on('connect', () => {
 
 
 
-
+maxAPI.addHandler('grabMessageFromBoard', ()=>{
+	console.log(bendit.messageFromBoard;
+	});
 maxAPI.addHandler('getSocket', () => {
   console.log(bendit.socket);
 });
