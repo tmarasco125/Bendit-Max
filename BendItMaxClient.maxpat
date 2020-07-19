@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 129.0, 90.0, 906.0, 663.0 ],
+		"rect" : [ 72.0, 85.0, 906.0, 663.0 ],
 		"bglocked" : 1,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -39,18 +39,37 @@
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
 				"box" : 				{
-					"id" : "obj-36",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
+					"id" : "obj-40",
+					"maxclass" : "message",
+					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 538.0, 589.0, 19.0, 22.0 ],
-					"saved_object_attributes" : 					{
-						"filename" : "",
-						"parameter_enable" : 0
-					}
-,
-					"text" : "js"
+					"patching_rect" : [ 445.0, 362.0, 110.0, 22.0 ],
+					"text" : "setSwitch 1 0 open"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-39",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 438.0, 333.0, 118.0, 22.0 ],
+					"text" : "setSwitch 1 0 closed"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-37",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 378.0, 235.0, 70.0, 22.0 ],
+					"text" : "findBoard 1"
 				}
 
 			}
@@ -222,7 +241,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 19.0, 444.0, 322.0, 22.0 ],
-					"text" : "\"connectedUsers \""
+					"text" : "\"connectedBoards [object Object]\""
 				}
 
 			}
@@ -234,7 +253,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 534.5, 246.0, 280.0, 22.0 ],
-					"text" : "stdout \"       id: '41SiEsf-pGb95x65AAAX' } } ]\""
+					"text" : "stdout \"  boardNumber: 1 }\""
 				}
 
 			}
@@ -265,7 +284,7 @@
 					"numoutlets" : 1,
 					"offset" : [ 0.0, 0.0 ],
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 413.5, 322.0, 400.0, 220.0 ],
+					"patching_rect" : [ 429.5, 400.0, 400.0, 220.0 ],
 					"viewvisibility" : 1
 				}
 
@@ -333,11 +352,11 @@
 				"box" : 				{
 					"id" : "obj-5",
 					"maxclass" : "newobj",
-					"numinlets" : 3,
-					"numoutlets" : 3,
-					"outlettype" : [ "", "", "" ],
-					"patching_rect" : [ 19.0, 212.0, 153.0, 22.0 ],
-					"text" : "route status processStatus"
+					"numinlets" : 4,
+					"numoutlets" : 4,
+					"outlettype" : [ "", "", "", "" ],
+					"patching_rect" : [ 19.0, 212.0, 247.0, 22.0 ],
+					"text" : "route status processStatus connectedBoards"
 				}
 
 			}
@@ -478,7 +497,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-8", 0 ],
-					"midpoints" : [ 180.5, 200.5, 423.0, 200.5 ],
+					"midpoints" : [ 180.5, 200.5, 439.0, 200.5 ],
 					"order" : 3,
 					"source" : [ "obj-1", 1 ]
 				}
@@ -549,6 +568,27 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-1", 0 ],
+					"source" : [ "obj-37", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-1", 0 ],
+					"source" : [ "obj-39", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-1", 0 ],
+					"source" : [ "obj-40", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-17", 0 ],
 					"source" : [ "obj-5", 0 ]
 				}
@@ -557,7 +597,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-18", 0 ],
-					"midpoints" : [ 95.5, 243.0, 216.5, 243.0 ],
+					"midpoints" : [ 104.5, 243.0, 216.5, 243.0 ],
 					"source" : [ "obj-5", 1 ]
 				}
 
