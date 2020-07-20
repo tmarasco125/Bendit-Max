@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 155.0, 113.0, 674.0, 539.0 ],
+		"rect" : [ 155.0, 113.0, 1374.0, 773.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -39,6 +39,19 @@
 		"subpatcher_template" : "",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-31",
+					"linecount" : 4,
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 125.0, 163.0, 50.0, 62.0 ],
+					"text" : "\"messageFromBoard 3,103\""
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-24",
 					"maxclass" : "number",
@@ -630,7 +643,7 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-90",
-					"items" : [ 1, ",", 1, ",", 2, ",", 2, ",", 2 ],
+					"items" : 3,
 					"maxclass" : "umenu",
 					"numinlets" : 1,
 					"numoutlets" : 3,
@@ -1536,8 +1549,18 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-31", 1 ],
+					"midpoints" : [ 42.5, 150.0, 165.5, 150.0 ],
+					"order" : 0,
+					"source" : [ "obj-25", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-65", 0 ],
 					"midpoints" : [ 42.5, 126.0, 42.5, 126.0 ],
+					"order" : 1,
 					"source" : [ "obj-25", 0 ]
 				}
 
@@ -1573,6 +1596,14 @@
 					"midpoints" : [ 36.0, 681.0, 36.0, 681.0 ],
 					"order" : 1,
 					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-65", 0 ],
+					"midpoints" : [ 134.5, 228.0, 18.0, 228.0, 18.0, 180.0, 42.5, 180.0 ],
+					"source" : [ "obj-31", 0 ]
 				}
 
 			}
