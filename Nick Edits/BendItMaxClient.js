@@ -95,6 +95,19 @@ maxAPI.addHandler('setSwitch', (...args) => {
   //console.log(bendit.messageFromBoard);
 });
 
+maxAPI.addHandler('flipSwitch', (...args) => {
+  // device/board number , switch number
+  var matchingDevice = bendit.devices.find(board => board.boardNumber == args[0]);
+  if (matchingDevice != null) {
+    // console.log("---------------------------------------------");
+	//executes within console.log():
+    console.log(matchingDevice.switches[args[1]].flipSwitch());
+	}
+  //console.log(bendit.messageFromBoard);
+});
+
+
+
 maxAPI.addHandler('setPot', (...args) => {
   // device/board number , pot number, state (0-127)
   var matchingDevice = bendit.devices.find(board => board.boardNumber == args[0]);
