@@ -29,9 +29,9 @@ socket.on('connect', () => {
   }
 });
 
-socket.on('fromBoard',(data)=>{
+socket.on('fromBoard',(data) => {
 	maxAPI.outlet("messageFromBoard " + data);
-	});
+});
 
 socket.on('grab_board_list', () => {
   maxAPI.outlet('yo');
@@ -59,7 +59,7 @@ maxAPI.addHandler('getConnectedBenditBoards', () => {
   // console.log(typeof board);
   console.log(boards.length);
   console.log(boards[0]);
-  
+
   console.log(boards.length);
   console.log(boards);
 
@@ -75,7 +75,6 @@ maxAPI.addHandler('getConnectedBenditBoards', () => {
     // switches, pots, motors, boardnum
     bendit.addDevice(6, 6, 1, board.number);
   }
-
 
   // tell max the board numbers
   for (var board of boards) {
@@ -96,6 +95,18 @@ maxAPI.addHandler('setSwitch', (...args) => {
   //console.log(bendit.messageFromBoard);
 });
 
+maxAPI.addHandler('flipSwitch', (...args) => {
+  // device/board number , switch number
+  var matchingDevice = bendit.devices.find(board => board.boardNumber == args[0]);
+  if (matchingDevice != null) {
+    // console.log("---------------------------------------------");
+	//executes within console.log():
+    console.log(matchingDevice.switches[args[1]].flipSwitch());
+	}
+  //console.log(bendit.messageFromBoard);
+});
+
+
 
 maxAPI.addHandler('setPot', (...args) => {
   // device/board number , pot number, state (0-127)
@@ -115,10 +126,23 @@ maxAPI.addHandler('runMotor', (...args) => {
   var matchingDevice = bendit.devices.find(board => board.boardNumber == args[0]);
   if (matchingDevice != null) {
     // console.log("---------------------------------------------");
-    console.log(matchingDevice.motors[args[1]].run(22, -1));
+    console.log(matchingDevice.motors[args[1]].run(args[2], args[3]));
   }
   //console.log(bendit.messageFromBoard);
 });
+
+maxAPI.addHandler('stopMotor', (...args) => {
+  // stop motor
+  var matchingDevice = bendit.devices.find(board => board.boardNumber == args[0]);
+  if (matchingDevice != null) {
+    // console.log("---------------------------------------------");
+    console.log(matchingDevice.motors[args[1]].stop());
+  }
+  //console.log(bendit.messageFromBoard);
+});
+
+
+
 
 
 
