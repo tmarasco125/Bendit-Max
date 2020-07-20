@@ -27,12 +27,18 @@ socket.on('connect', () => {
     if (bendit != null) {
         maxAPI.outlet("connectedUsers " + bendit.getConnectedUsers());
     }
+	/*
 	if(bendit.receivedBoardMessage()){
 		var newMessage = bendit.messageFromBoard;
 		maxAPI.outlet("incomingMessageFromBoard" + newMessage);
 		maxAPI.post(`Received ${newMessage} from a board`);
 	}
+	*/
 });
+
+socket.on('fromBoard',(data)=>{
+	maxAPI.outlet("messageFromBoard " + data);
+	});
 
 
 

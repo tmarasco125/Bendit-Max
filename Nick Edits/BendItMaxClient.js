@@ -1,3 +1,9 @@
+//**********************************************************
+//*  Bendit-Max: Interfacing with Bendit_I/O through Max   *
+//*	 by Nick Hwang and Anthony T. Marasco                  *
+//*  v1.0 - 2020                                           *
+//**********************************************************
+
 const path = require('path');
 const maxAPI = require('max-api');
 const io = require('socket.io-client');
@@ -22,6 +28,10 @@ socket.on('connect', () => {
     maxAPI.outlet("connectedUsers " + bendit.getConnectedUsers());
   }
 });
+
+socket.on('fromBoard',(data)=>{
+	maxAPI.outlet("messageFromBoard " + data);
+	});
 
 socket.on('grab_board_list', () => {
   maxAPI.outlet('yo');
@@ -49,19 +59,7 @@ maxAPI.addHandler('getConnectedBenditBoards', () => {
   // console.log(typeof board);
   console.log(boards.length);
   console.log(boards[0]);
-  boards.push({
-    id: 'me',
-    color: 'poopColor',
-    number: '12',
-    nickname: 'boombox'
-  });
-
-  boards.push({
-    id: 'meee',
-    color: 'poopColor',
-    number: '-12',
-    nickname: 'pooo'
-  });
+  
   console.log(boards.length);
   console.log(boards);
 
@@ -85,7 +83,6 @@ maxAPI.addHandler('getConnectedBenditBoards', () => {
     maxAPI.outlet("boardnumbers", board.number);
   }
 
-  console.log(bendit.devices);
 });
 
 maxAPI.addHandler('setSwitch', (...args) => {
@@ -93,9 +90,10 @@ maxAPI.addHandler('setSwitch', (...args) => {
   var matchingDevice = bendit.devices.find(board => board.boardNumber == args[0]);
   if (matchingDevice != null) {
     // console.log("---------------------------------------------");
+	//executes within console.log():
     console.log(matchingDevice.switches[args[1]].setSwitch(args[2]));
   }
-  console.log(bendit.messageFromBoard);
+  //console.log(bendit.messageFromBoard);
 });
 
 
@@ -106,7 +104,7 @@ maxAPI.addHandler('setPot', (...args) => {
     // console.log("---------------------------------------------");
     console.log(matchingDevice.pots[args[1]].setPot(args[2]));
   }
-  console.log(bendit.messageFromBoard);
+ // console.log(bendit.messageFromBoard);
 });
 
 maxAPI.addHandler('runMotor', (...args) => {
@@ -119,7 +117,7 @@ maxAPI.addHandler('runMotor', (...args) => {
     // console.log("---------------------------------------------");
     console.log(matchingDevice.motors[args[1]].run(22, -1));
   }
-  console.log(bendit.messageFromBoard);
+  //console.log(bendit.messageFromBoard);
 });
 
 
