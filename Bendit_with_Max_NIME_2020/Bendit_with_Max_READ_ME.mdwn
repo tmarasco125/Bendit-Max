@@ -1,15 +1,20 @@
 ## Sending and receiving messages
 
-In any of the included patches, start by clicking the install message labelled '1', followed by the start message labeled '2'. This will begin the connection to Bendit_io, and allow the patches to respond to messages from the board
+In any of the included patches, start by clicking the install message labelled '1' of you have never run the Bendit programs before, followed by the start message labeled '2'. This will begin the connection to Bendit_io, and allow the patches to respond to messages from the board. Then, click on the message "getConnectedBoards" located next to 'start' and you will be able to use the interface below.
 
-When the Bendit boards receive a Switch-based command, they will return a message containing an identification number and a random value between 0 and 127. These patches will utilize thin information in order to create and alter aspects of the patch based on the interactions with Bendit_io via internet server connection. Each of the patches contained in this folder interact with the incoming data differently, and can be configured to fit a variety of needs. All included patches are set up to route data from up to 4 connected boards, and indicate when a message is received from each board. In the patches utilizing inputs from multiple boards, all inputs from one board are independent from the other boards.
+When the Bendit boards receive a switch-based command, they will return a message containing an identification number and a random value between 0 and 127. These patches will utilize thin information in order to create and alter aspects of the patch based on the interactions with Bendit_io via internet server connection. Each of the patches contained in this folder interact with the incoming data differently, and can be configured to fit a variety of needs. All included patches are set up to route data both to and from up to 4 connected boards, and indicate when a message is received from each board. In the patches utilizing inputs from multiple boards, all inputs from one board are independent from the other boards.
 
 In order to ensure the max patches function as intended, please ensure that the following files are present within the **same folder**:
 
 * BenditMaxClient.maxpat
+* BenditRouting.maxpat
 * BenditMaxClient.js
 * drumLoop.wav
 * the 4 NIME_2020 patches as described below
+
+## Sending Commands
+
+In each of the four patches, the interface for sending commands is located below the startup buttons that were previously mentioned. After getting the connected boards, you can select the board number that you wish to communicate with, and then the switch, potentiometer, or motor you wish to command on that board. Set the value and use the on-screen button to send the command. Once the board receives the command it will return a message. (mentioned above) EAch of the four patches included here will respond to that message differently as detailed below:
 
 ## Patch 1: MIDI Control
 
@@ -62,3 +67,5 @@ This patch utilizes incoming values from up to 4 connected boards in order alter
     * Values are scaled to a range of 0-1 and used to control the crossfade amount in the delayr object.
 
 In order to change which boards the patch receives data from, simply change the connections from the route object to the desired configuration.
+
+Please keep in mind that if you attempt to communicate with a component that is not connected, then no response will happen on the physical hardware, and if you attempt to communicate with a board that is not properly identified, you will receive an error message. If more than four boards are to be used at once, then an additional outlet will need to be added to the BenditRouting.maxpat file to accommodate for the additional messages.

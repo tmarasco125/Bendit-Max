@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 2617.0, 173.0, 694.0, 813.0 ],
+		"rect" : [ 2617.0, 173.0, 725.0, 813.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -39,6 +39,36 @@
 		"subpatcher_template" : "",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"bgcolor" : [ 0.996078431372549, 0.996078431372549, 0.996078431372549, 0.0 ],
+					"id" : "obj-29",
+					"linecount" : 5,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 504.0, 36.0, 227.0, 74.0 ],
+					"presentation" : 1,
+					"presentation_linecount" : 5,
+					"presentation_rect" : [ 479.5, 17.0, 227.0, 74.0 ],
+					"text" : "This patch by:\nMatthew A. Bardin (2020)\nLSU Experimental Music & Digital Media\nmatthewbardin.com\nbmatt16@lsu.edu"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-6",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 166.5, 90.0, 155.0, 22.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 221.25, 50.0, 155.0, 22.0 ],
+					"text" : "getConnectedBenditBoards"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"data" : 					{
 						"clips" : [ 							{
@@ -949,7 +979,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 137.0, 18.0, 39.0, 20.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 347.0, 24.0, 39.0, 20.0 ],
+					"presentation_rect" : [ 142.0, 23.0, 39.0, 20.0 ],
 					"text" : "2"
 				}
 
@@ -962,7 +992,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 19.0, 18.0, 39.0, 20.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 229.0, 24.0, 39.0, 20.0 ],
+					"presentation_rect" : [ 24.0, 23.0, 39.0, 20.0 ],
 					"text" : "1"
 				}
 
@@ -988,7 +1018,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 19.0, 45.0, 98.0, 22.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 229.0, 51.0, 98.0, 22.0 ],
+					"presentation_rect" : [ 24.0, 50.0, 98.0, 22.0 ],
 					"text" : "script npm install"
 				}
 
@@ -1002,7 +1032,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 217.0, 45.0, 63.0, 22.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 427.0, 51.0, 63.0, 22.0 ],
+					"presentation_rect" : [ 388.75, 50.0, 63.0, 22.0 ],
 					"text" : "script stop"
 				}
 
@@ -1016,7 +1046,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 137.0, 45.0, 64.0, 22.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 347.0, 51.0, 64.0, 22.0 ],
+					"presentation_rect" : [ 142.0, 50.0, 64.0, 22.0 ],
 					"text" : "script start"
 				}
 
@@ -1643,6 +1673,13 @@
 					"destination" : [ "obj-93", 0 ],
 					"midpoints" : [ 906.25, 102.0, 798.0, 102.0, 798.0, 153.0, 822.25, 153.0 ],
 					"source" : [ "obj-54", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-25", 0 ],
+					"source" : [ "obj-6", 0 ]
 				}
 
 			}

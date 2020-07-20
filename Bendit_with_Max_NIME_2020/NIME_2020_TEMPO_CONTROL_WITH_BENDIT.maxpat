@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 155.0, 113.0, 1374.0, 773.0 ],
+		"rect" : [ 155.0, 113.0, 706.0, 773.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -39,6 +39,36 @@
 		"subpatcher_template" : "",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-33",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 182.0, 101.0, 155.0, 22.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 221.25, 51.0, 155.0, 22.0 ],
+					"text" : "getConnectedBenditBoards"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"bgcolor" : [ 0.996078431372549, 0.996078431372549, 0.996078431372549, 0.0 ],
+					"id" : "obj-30",
+					"linecount" : 5,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 491.0, 271.0, 227.0, 74.0 ],
+					"presentation" : 1,
+					"presentation_linecount" : 5,
+					"presentation_rect" : [ 471.0, 15.0, 227.0, 74.0 ],
+					"text" : "This patch by:\nMatthew A. Bardin (2020)\nLSU Experimental Music & Digital Media\nmatthewbardin.com\nbmatt16@lsu.edu"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-31",
 					"linecount" : 4,
@@ -1219,7 +1249,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 231.0, 51.0, 63.0, 22.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 231.0, 51.0, 63.0, 22.0 ],
+					"presentation_rect" : [ 389.0, 51.0, 63.0, 22.0 ],
 					"text" : "script stop"
 				}
 
@@ -1604,6 +1634,13 @@
 					"destination" : [ "obj-65", 0 ],
 					"midpoints" : [ 134.5, 228.0, 18.0, 228.0, 18.0, 180.0, 42.5, 180.0 ],
 					"source" : [ "obj-31", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-25", 0 ],
+					"source" : [ "obj-33", 0 ]
 				}
 
 			}
