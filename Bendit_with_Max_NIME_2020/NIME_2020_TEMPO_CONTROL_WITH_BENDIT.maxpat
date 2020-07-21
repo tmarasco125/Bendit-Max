@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 155.0, 113.0, 706.0, 773.0 ],
+		"rect" : [ 155.0, 113.0, 706.0, 538.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -39,6 +39,29 @@
 		"subpatcher_template" : "",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-38",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 391.0, 180.0, 44.0, 22.0 ],
+					"text" : "s clear"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-37",
+					"maxclass" : "button",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 383.0, 131.0, 24.0, 24.0 ]
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-33",
 					"maxclass" : "message",
@@ -506,7 +529,7 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-187",
-					"items" : [ 1, ",", 2, ",", 3, ",", 4, ",", 5, ",", 6 ],
+					"items" : [ 0, ",", 1, ",", 2, ",", 3, ",", 4, ",", 5 ],
 					"maxclass" : "umenu",
 					"numinlets" : 1,
 					"numoutlets" : 3,
@@ -688,7 +711,7 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-78",
-					"items" : [ 1, ",", 2, ",", 3, ",", 4, ",", 5, ",", 6 ],
+					"items" : [ 0, ",", 1, ",", 2, ",", 3, ",", 4, ",", 5 ],
 					"maxclass" : "umenu",
 					"numinlets" : 1,
 					"numoutlets" : 3,
@@ -1640,7 +1663,23 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-25", 0 ],
+					"order" : 1,
 					"source" : [ "obj-33", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-37", 0 ],
+					"order" : 0,
+					"source" : [ "obj-33", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-38", 0 ],
+					"source" : [ "obj-37", 0 ]
 				}
 
 			}

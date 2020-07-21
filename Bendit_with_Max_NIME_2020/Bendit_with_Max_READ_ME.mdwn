@@ -10,13 +10,13 @@ In order to ensure the max patches function as intended, please ensure that the 
 * BenditRouting.maxpat
 * BenditMaxClient.js
 * drumLoop.wav
-* the 4 NIME_2020 patches as described below
+* The 4 NIME_2020 patches as described below
 
 ## Sending Commands
 
 In each of the four patches, the interface for sending commands is located below the startup buttons that were previously mentioned. After getting the connected boards, you can select the board number that you wish to communicate with, and then the switch, potentiometer, or motor you wish to command on that board. Set the value and use the on-screen button to send the command. Once the board receives the command it will return a message. (mentioned above) EAch of the four patches included here will respond to that message differently as detailed below:
 
-## Patch 1: MIDI Control
+## Patch 1: MIDI Control (yellow)
 
 Receives the incoming random number and routes it to control the output of MIDI data, which can bea heard on the local device. By default the patch responds to data from bendit board 1 and 2 in the following ways:
 
@@ -27,7 +27,7 @@ These MIDI values are represented graphically on the screen via the keyboard, an
 
 In order to change which boards the patch receives data from, simply change the connections from the route object to the desired configuration.
 
-## Patch 2: Filter Control
+## Patch 2: Filter Control (red)
 
 Receives the incoming random number in order to control the values of Max's biquad filter object. Be sure to first initialize the patch audio by clicking on the DAC labeled '3'. cThis patch utilizes the incoming data from boards 1 through 4 in the following ways:
 
@@ -40,7 +40,7 @@ The filter is applied to white noise after the application of the scaled data fr
 
 In order to change which boards the patch receives data from, simply change the connections from the route object to the desired configuration.
 
-## Patch 3: Tempo Control
+## Patch 3: Tempo Control (blue)
 
 This patch will automatically load the included drumLoop.wav file upon startup. Start by enabling audio by clicking on the DAC labelled '3'. This patch takes in data from boards labelled 2 and 3 in order to process the playback speed of the .wav file.
 
@@ -49,7 +49,7 @@ This patch will automatically load the included drumLoop.wav file upon startup. 
 
 In order to change which boards the patch receives data from, simply change the connections from the route object to the desired configuration.
 
-## Patch 4: Video Effect Control
+## Patch 4: Video Effect Control (purple)
 
 Press the play and loop button in the video file labelled 3. You should then see the video file begin to play in a separate window
 
