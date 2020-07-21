@@ -1,3 +1,14 @@
+ /* 
+        =============================================================================
+            Bendit-Max Library
+            by Nick Hwang & Anthony T. Marasco
+            v1.0 - 2020
+                                                 
+            * Published under a Attribution - NonCommercial 4.0      *
+            *  International (CC BY-NC 4.0) License                  *
+        =============================================================================
+        */
+
 class Bendit {
     /**
      * @property {string[]} users - An array of connected client websocket IDs

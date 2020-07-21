@@ -1,7 +1,13 @@
 //**********************************************************
 //*  Bendit-Max: Interfacing with Bendit_I/O through Max   *
 //*	 by Nick Hwang and Anthony T. Marasco                  *
-//*  v1.0 - 2020                                           *
+//*  v1.0 - 2020 
+//* 
+                              
+ //  * Published under a Attribution - NonCommercial 4.0      *
+ //  *  International (CC BY-NC 4.0) License                  *
+       
+ 
 //**********************************************************
 
 const path = require('path');
