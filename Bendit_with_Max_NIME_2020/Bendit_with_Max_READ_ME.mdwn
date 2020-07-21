@@ -4,6 +4,8 @@ In any of the included patches, start by clicking the install message labelled '
 
 When the Bendit boards receive a switch-based command, they will return a message containing an identification number and a random value between 0 and 127. These patches will utilize thin information in order to create and alter aspects of the patch based on the interactions with Bendit_io via internet server connection. Each of the patches contained in this folder interact with the incoming data differently, and can be configured to fit a variety of needs. All included patches are set up to route data both to and from up to 4 connected boards, and indicate when a message is received from each board. In the patches utilizing inputs from multiple boards, all inputs from one board are independent from the other boards.
 
+To grab the example patches and the Bendit-Max library discussed below, [clone the Bendit-Max repo found here](https://github.com/tmarasco125/Bendit-Max).
+
 In order to ensure the max patches function as intended, please ensure that the following files are present within the **same folder**:
 
 * BenditMaxClient.maxpat
